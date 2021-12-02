@@ -1,0 +1,35 @@
+const getUserChoice = userInput => {
+  userInput = userInput.toLowerCase();
+  if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
+    return userInput;
+  } console.log("Error: User did not type on of the 3 possible choices");
+};
+function getComputerChoice() {
+  const c = Math.floor(Math.random() * 3);
+  if (c === 0) {
+    return "rock";
+  } else if (c === 1) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+}
+
+determineWinner  = (userChoice, computerChoice) => {
+  if (userChoice === computerChoice) {
+    return "The game was a tie";
+  } else if (userChoice === "rock") {
+    return (computerChoice === "paper" ? "Computer won!" : "You won!");
+  } else if (userChoice === "paper") {
+    return (computerChoice === "rock" ? "You won!" : "Computer won!");
+  } else if (userChoice === "scissors") {
+    return (computerChoice === "rock" ? "Computer won!" : "You won!");
+  }
+}
+
+function playGame() {
+  var userChoice = getUserChoice("Rock");
+  var computerChoice = getComputerChoice();
+  console.log(determineWinner(userChoice,computerChoice));
+}
+playGame();
